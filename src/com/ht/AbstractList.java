@@ -1,4 +1,8 @@
 package com.ht;
 
-public class AbstractList {
+public abstract class AbstractList<E> implements List<E> {
+    @Override
+    public boolean isEmpty() {
+        return size() == 0;
+    }
 }

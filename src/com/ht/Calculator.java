@@ -1,6 +1,6 @@
 package com.ht;
 
-public interface Calculator {
+public interface Calculator{
 
     /**
      * Calculates an entire operation.
