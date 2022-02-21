@@ -5,9 +5,23 @@ import java.util.Stack;
 public class InfixCalculator implements Calculator {
 
     ArrayList<Double> data;
+    static boolean hasInstance;
 
-    InfixCalculator() {
+    private InfixCalculator() {
         data = new ArrayList<Double>();
+        hasInstance = true;
+    }
+
+    public static InfixCalculator instance() {
+        if (InfixCalculator.hasInstance) {
+            return null;
+        }
+        return new InfixCalculator();
+    }
+
+    public void destroyInstance() {
+        InfixCalculator.hasInstance = false;
+
     }
 
     public void add(Double item) {
