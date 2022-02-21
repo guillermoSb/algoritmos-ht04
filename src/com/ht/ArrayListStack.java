@@ -1,33 +1,33 @@
 package com.ht;
 import java.util.ArrayList;
 
-public class ArrayListStack implements Stack<Double> {
+public class ArrayListStack<E> implements Stack<E> {
 
-    ArrayList<Double> data;
+    ArrayList<E> data;
 
     ArrayListStack() {
-        data = new ArrayList<Double>();
+        data = new ArrayList<E>();
     }
 
     @Override
-    public void add(Double item){
+    public void add(E item){
         data.add(item);
     }
 
     @Override
-    public Double remove(){
+    public E remove(){
         if (!empty()) { // checks for an empty Stack
-            double value = data.get(data.size() - 1);
+            E value = data.get(data.size() - 1);
             data.remove(data.size() - 1); // removes the poped element             
             return value;
         }    else {
             System.out.print("The stack is already empty  ");
-            return -1.0;
+            return null;
         }
     }
 
     @Override
-    public Double peek(){
+    public E peek(){
         return data.get(data.size() - 1);
     }
 

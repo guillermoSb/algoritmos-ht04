@@ -1,26 +1,27 @@
 package com.ht;
 import java.util.Vector;
 
-public class VectorStack implements Stack<Double> {
+public class VectorStack<E> implements Stack<E> {
 
-    Vector<Double> data;
+    Vector<E> data;
 
     VectorStack() {
-        data = new Vector<Double>();
+        data = new Vector<E>();
     }
 
     @Override
-    public void add(Double item) {
+    public void add(E item) {
         data.add(item);
     }
 
     @Override
-    public Double remove() {
+    public E remove() {
+        if(empty()) return null;
         return data.remove(size() - 1);
     }
 
     @Override
-    public Double peek() {
+    public E peek() {
         return data.get(size() - 1);
     }
 
