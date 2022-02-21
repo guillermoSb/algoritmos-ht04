@@ -6,7 +6,7 @@ public class Main {
 	// write your code here
 
     InfixCalculator cal = new InfixCalculator();
-    String exp = "A+B*(C^D-E)";
+    String exp = "1 + 2";
     System.out.println("Infix Expression: " + exp);
     System.out.println("Postfix Expression: " + cal.transformExpression(exp));
     }
