@@ -1,22 +1,21 @@
 package com.ht;
 import java.util.ArrayList;
-import java.util.Stack;
 
 public class InfixCalculator implements Calculator {
 
-    ArrayList<Double> data;
+    Stack<Double> data;
     static boolean hasInstance;
 
-    private InfixCalculator() {
-        data = new ArrayList<Double>();
+    private InfixCalculator(Stack<Double> data) {
+        data = data;
         hasInstance = true;
     }
 
-    public static InfixCalculator instance() {
+    public static InfixCalculator instance(Stack<Double> data) {
         if (InfixCalculator.hasInstance) {
             return null;
         }
-        return new InfixCalculator();
+        return new InfixCalculator(data);
     }
 
     public void destroyInstance() {
@@ -29,7 +28,7 @@ public class InfixCalculator implements Calculator {
     }
 
     public Double remove() {
-        return data.remove(size() - 1);
+        return data.remove();
     }
 
     public int size() {
@@ -124,31 +123,31 @@ public class InfixCalculator implements Calculator {
     public String transformExpression(String operation){
       
         String result = "";
-        Stack<Character> stack = new Stack<>();
+        Stack<Character> stack = new VectorStack<>();
         for (int i = 0; i <operation.length() ; i++) {
             char c = operation.charAt(i);
     
             //check if char is operator
             if(precedence(c)>0){
-                while(stack.isEmpty()==false && precedence(stack.peek())>=precedence(c)){
-                    result += stack.pop();
+                while(stack.empty()==false && precedence(stack.peek())>=precedence(c)){
+                    result += stack.remove();
                 }
-                    stack.push(c);
+                    stack.add(c);
                 }else if(c==')'){
-                    char x = stack.pop();
+                    char x = stack.remove();
                     while(x!='('){
                         result += x;
-                        x = stack.pop();
+                        x = stack.remove();
                     }
                 }else if(c=='('){
-                    stack.push(c);
+                    stack.add(c);
                 }else{
                     //character is neither operator nor ( 
                     result += c;
                 }
             }
             for (int i = 0; i <=stack.size() ; i++) {
-                result += stack.pop();
+                result += stack.remove();
             }
         return result;
         
