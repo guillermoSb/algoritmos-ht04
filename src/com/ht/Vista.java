@@ -1,22 +1,31 @@
 package com.ht;
-
+import java.util.Scanner;
 
 /**
  * Vista
  */
 public class Vista {
-//    public void welcome() {
-//        System.out.println("Bienvenido al generador de listas, disfrute su estadía");
-//        Thread.sleep(1000);
-//
-//    }
-//    public String menu() {
-//        System.out.println("Elija su opción");
-//        System.out.println("1. Generar ArrayList Stack");
-//        System.out.println("2. Generar Vector Stack");
-//        System.out.println("3. Generar List Stack");
-//    }
-//    public void liststack() {
-//        System.out.println("elija si quiere que sea doble (1 sí y 2 no)");
-//    }
+
+    Scanner sc = new Scanner(System.in);
+    public void welcome() {
+        System.out.println("Bienvenido al generador de listas, disfrute su estadía");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }
+    public String menu() {
+        System.out.println("Elija su opción");
+        System.out.println("1. Generar ArrayList Stack (Escriba AL) ");
+        System.out.println("2. Generar Vector Stack (Escriba V) ");
+        System.out.println("3. Generar Simple linked list stack (Escriba LS) ");
+        System.out.println("4. Generar Doble linked list stack (Escriba DL) ");
+        String sl;
+        sl = sc.nextLine();
+        return sl;
+    }
+
 }
