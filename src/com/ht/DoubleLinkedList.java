@@ -15,7 +15,7 @@ public class DoubleLinkedList<E> extends AbstractList<E>{
 
     @Override
     public int size() {
-        return 0;
+        return count;
     }
 
     @Override

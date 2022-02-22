@@ -18,7 +18,7 @@ public class StackFactory<E> {
         } else if (entry.equals("LS")) {
             return new ListStack<E>(new SimpleLinkedList<E>()); // Simple linked list stack
         } else if (entry.equals("DL")) {
-            return new ListStack<E>(new DoubleLinkedList<>()); // Double Linked List Stack
+            return new ListStack<E>(new DoubleLinkedList<E>()); // Double Linked List Stack
         } else {return null;}
     }
 }

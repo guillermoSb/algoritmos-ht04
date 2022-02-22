@@ -7,7 +7,7 @@ public class InfixCalculator implements Calculator {
     static boolean hasInstance;
 
     private InfixCalculator(Stack<Double> data) {
-        data = data;
+        this.data = data;
         hasInstance = true;
     }
 
@@ -42,7 +42,7 @@ public class InfixCalculator implements Calculator {
         // Iterate through each value on the operation
         for (String value:
              splittedOperation) {
-            // TODO: Handle error
+
             if (!isNumber(value) && !isOperator(value)) {
                 return 0;
             }
@@ -53,9 +53,10 @@ public class InfixCalculator implements Calculator {
             }
             // If the value is an operator, start operating two values
             if(isOperator(value)) {
-                // Todo: Handle Exception
                 Double operatorA = remove();
                 Double operatorB = remove();
+                System.out.println(operatorA);
+                System.out.println(operatorB);
                 String operator = value;
                 Double result = operate(operatorA, operatorB, operator);
                 add(result);
