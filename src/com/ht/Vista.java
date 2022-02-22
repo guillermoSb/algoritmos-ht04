@@ -10,7 +10,7 @@ public class Vista {
         Thread.sleep(1000);
 
     }
-    public String menú() {
+    public String menu() {
         System.out.println("Elija su opción");
         System.out.println("1. Generar ArrayList Stack");
         System.out.println("2. Generar Vector Stack");
