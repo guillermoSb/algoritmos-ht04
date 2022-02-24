@@ -151,8 +151,15 @@ public class InfixCalculator implements Calculator {
                 result += stack.remove();
             }
         return result;
-        
-    }
 
+    }
+    public String separar(String operacion){
+        final int cadaN = 1;
+        final String separarCon = " ";
+        String result = " ";
+        result = operacion.replaceAll("(?s).{" + cadaN + "}(?!$)", "$0" + separarCon);
+        return result;
+    }
+    
 
 }
