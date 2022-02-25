@@ -23,6 +23,7 @@ public class Vista {
         System.out.println("2. Generar Vector Stack (Escriba V) ");
         System.out.println("3. Generar Simple linked list stack (Escriba LS) ");
         System.out.println("4. Generar Doble linked list stack (Escriba DL) ");
+        System.out.println("5. Salir (S)");
         String sl;
         sl = sc.nextLine();
         return sl;
