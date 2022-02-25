@@ -6,7 +6,7 @@ public class Main {
 	    // write your code here
         StackFactory<Double> stackFactory = new StackFactory<>();
         InfixCalculator cal = InfixCalculator.instance(stackFactory.getStack("V"));
-        String exp = "1+2";
+        String exp = "(1+2)*5";
         System.out.println("Infix Expression: " + exp);
         System.out.println("Postfix Expression: " + cal.transformExpression(exp));
         System.out.println("Resultado: "+ cal.calculate(cal.separar(cal.transformExpression(exp))));

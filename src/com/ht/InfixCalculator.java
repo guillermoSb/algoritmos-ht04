@@ -36,8 +36,9 @@ public class InfixCalculator implements Calculator {
 
     @Override
     public double calculate(String operation) {
+
         // Split the operation into subcomponents
-        String[] splittedOperation = operation.split(" ");
+        String[] splittedOperation = separar(transformExpression(operation)).split(" ");
         // Iterate through each value on the operation
         for (String value:
              splittedOperation) {
