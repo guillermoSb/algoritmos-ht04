@@ -16,23 +16,23 @@ public class Main {
         try {
             Vista v = new Vista();  // Init view
 
-            int ot = 0; // Save the user option
-            while (ot != 5) {
+            String ot = ""; // Save the user option
+            while (!ot.equals("S")) {
 
                 File file = new File("datos.txt");  // File to be loaded
                 Scanner rd; // Scanner for the file
                 rd = new Scanner(file); // Init scanner with file
 
                 ot = v.menu();   // Show the menu
-                if (ot == 1) {
+                if (ot.equals("AL")) {
                     calculator.setStack(stackFactory.getStack("AL"));
-                } else if(ot == 2) {
+                } else if(ot.equals("V")) {
                     calculator.setStack(stackFactory.getStack("V"));
-                } else if (ot == 3) {
+                } else if (ot.equals("LS")) {
                     calculator.setStack(stackFactory.getStack("LS"));
-                } else if(ot == 4) {
+                } else if(ot.equals("DL")) {
                     calculator.setStack(stackFactory.getStack("DL"));
-                } else if (ot == 5) {
+                } else if (ot.equals("S")) {
                     System.out.println("Saliendo");
                     continue;
                 } else {
@@ -54,5 +54,6 @@ public class Main {
         } catch (InputMismatchException e) {
             System.out.println("Error, por favor ingresa un numero.");
         }
+
     }
 }
