@@ -69,24 +69,28 @@ public class InfixCalculatorTest {
 
     @Test
     public void testCalculate() {
-        InfixCalculator calculator = InfixCalculator.instance(vectorStack);
+        InfixCalculator calculator = InfixCalculator.instance();
+        calculator.setStack(vectorStack);
         double result = calculator.calculate("1 2 +");
         assertTrue("El resultado de 1 + 2 debe ser 3", result == 3);
 
         calculator.destroyInstance();
-        calculator = InfixCalculator.instance(arrayListStack);
+        calculator = InfixCalculator.instance();
+        calculator.setStack(arrayListStack);
 
         result = calculator.calculate("1 2 +");
         assertTrue("El resultado de 1 + 2 debe ser 3", result == 3);
 
         calculator.destroyInstance();
-        calculator = InfixCalculator.instance(simpleLinkedListStack);
+        calculator = InfixCalculator.instance();
+        calculator.setStack(simpleLinkedListStack);
 
         result = calculator.calculate("1 2 +");
         assertTrue("El resultado de 1 + 2 debe ser 3", result == 3);
 
         calculator.destroyInstance();
-        calculator = InfixCalculator.instance(doubleLinkedListStack);
+        calculator = InfixCalculator.instance();
+        calculator.setStack(doubleLinkedListStack);
 
         result = calculator.calculate("1 2 +");
         assertTrue("El resultado de 1 + 2 debe ser 3", result == 3);

@@ -12,7 +12,7 @@ public class Main {
         Vista vista = new Vista();
         StackFactory<Double> stackFactory = new StackFactory<>();
         Scanner sc = new Scanner(System.in);    // Scanner for user input
-
+        InfixCalculator calculator = InfixCalculator.instance();
         try {
             Vista v = new Vista();  // Init view
 
@@ -22,16 +22,16 @@ public class Main {
                 File file = new File("datos.txt");  // File to be loaded
                 Scanner rd; // Scanner for the file
                 rd = new Scanner(file); // Init scanner with file
-                InfixCalculator calculator;
+
                 ot = v.menu();   // Show the menu
                 if (ot == 1) {
-                    calculator = InfixCalculator.instance(stackFactory.getStack("AL"));
+                    calculator.setStack(stackFactory.getStack("AL"));
                 } else if(ot == 2) {
-                    calculator = InfixCalculator.instance(stackFactory.getStack("V"));
+                    calculator.setStack(stackFactory.getStack("V"));
                 } else if (ot == 3) {
-                    calculator = InfixCalculator.instance(stackFactory.getStack("LS"));
+                    calculator.setStack(stackFactory.getStack("LS"));
                 } else if(ot == 4) {
-                    calculator = InfixCalculator.instance(stackFactory.getStack("DL"));
+                    calculator.setStack(stackFactory.getStack("DL"));
                 } else if (ot == 5) {
                     System.out.println("Saliendo");
                     continue;
@@ -42,14 +42,12 @@ public class Main {
                 while (rd.hasNextLine()){
                     String line = rd.nextLine();
                     try {
-                        System.out.println(line);
                         double result = calculator.calculate(line);
                         System.out.printf("Result is: %.1f\n", result);
                     } catch (Exception e) {
                         System.out.printf("Error: La operacion: %s no tiene el formato adecuado.\n",line);    // Calculate each line
                     }
                 }
-                calculator.destroyInstance();
             }
         } catch (FileNotFoundException e) {
             System.out.println("Error cargando el archivo datos.txt");

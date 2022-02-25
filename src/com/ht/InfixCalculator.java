@@ -10,12 +10,15 @@ public class InfixCalculator implements Calculator {
         hasInstance = true;
     }
 
-    public static InfixCalculator instance(Stack<Double> data) {
+    public static InfixCalculator instance() {
         if (InfixCalculator.hasInstance) {
             return null;
         }
-        System.out.println("Generando instancias");
-        return new InfixCalculator(data);
+        return new InfixCalculator(new VectorStack<>());
+    }
+
+    public void setStack(Stack<Double> data) {
+        this.data = data;
     }
 
     public void destroyInstance() {
@@ -40,10 +43,10 @@ public class InfixCalculator implements Calculator {
 
         // Split the operation into subcomponents
         String[] splittedOperation = separar(transformExpression(operation)).split(" ");
+
         // Iterate through each value on the operation
         for (String value:
              splittedOperation) {
-
             if (!isNumber(value) && !isOperator(value)) {
                 return 0;
             }
@@ -54,8 +57,9 @@ public class InfixCalculator implements Calculator {
             }
             // If the value is an operator, start operating two values
             if(isOperator(value)) {
-                Double operatorA = remove();
+                System.out.println(data.peek());
                 Double operatorB = remove();
+                Double operatorA = remove();
                 String operator = value;
                 Double result = operate(operatorA, operatorB, operator);
                 add(result);
@@ -75,7 +79,7 @@ public class InfixCalculator implements Calculator {
         if (operator.equals("+")) return a + b;
         if (operator.equals("-")) return a + b;
         if (operator.equals("*")) return a * b;
-        if (operator.equals("/")) return a / b;
+        if (operator.equals("/")) return a/b;
         return 0;   // Last instance
     }
 
