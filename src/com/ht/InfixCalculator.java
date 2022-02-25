@@ -14,6 +14,7 @@ public class InfixCalculator implements Calculator {
         if (InfixCalculator.hasInstance) {
             return null;
         }
+        System.out.println("Generando instancias");
         return new InfixCalculator(data);
     }
 
@@ -55,8 +56,6 @@ public class InfixCalculator implements Calculator {
             if(isOperator(value)) {
                 Double operatorA = remove();
                 Double operatorB = remove();
-                System.out.println(operatorA);
-                System.out.println(operatorB);
                 String operator = value;
                 Double result = operate(operatorA, operatorB, operator);
                 add(result);

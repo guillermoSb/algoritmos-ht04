@@ -17,14 +17,15 @@ public class Vista {
         }
 
     }
-    public String menu() {
+    public int menu() {
         System.out.println("Elija su opción");
         System.out.println("1. Generar ArrayList Stack (Escriba AL) ");
         System.out.println("2. Generar Vector Stack (Escriba V) ");
         System.out.println("3. Generar Simple linked list stack (Escriba LS) ");
         System.out.println("4. Generar Doble linked list stack (Escriba DL) ");
-        String sl;
-        sl = sc.nextLine();
+        System.out.println("5. Salir ");
+        int sl;
+        sl = sc.nextInt();
         return sl;
     }
 
