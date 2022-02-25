@@ -7,6 +7,10 @@ import java.util.Scanner;
 public class Vista {
 
     Scanner sc = new Scanner(System.in);
+
+    /**
+     * Show a welcome message to the user
+     */
     public void welcome() {
         System.out.println("Bienvenido al generador de listas, disfrute su estadía");
         try {
@@ -17,6 +21,11 @@ public class Vista {
         }
 
     }
+
+    /**
+     * Show the menu to the user
+     * @return
+     */
     public String menu() {
         System.out.println("Elija su opción");
         System.out.println("1. Generar ArrayList Stack (Escriba AL) ");
